@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.10.0)
 project(fast_gicp)
+add_definitions(-std=c++11)
 
 option(BUILD_VGICP_CUDA "Build GPU-powered VGICP" OFF)
 option(BUILD_apps "Build application programs" ON)
@@ -8,9 +9,9 @@ option(BUILD_PYTHON_BINDINGS "Build python bindings" OFF)
 
 if(${CMAKE_SYSTEM_PROCESSOR} STREQUAL "aarch64")
 else()
-  add_definitions(-msse -msse2 -msse3 -msse4 -msse4.1 -msse4.2)
-  set(CMAKE_C_FLAGS "-msse -msse2 -msse3 -msse4 -msse4.1 -msse4.2")
-  set(CMAKE_CXX_FLAGS "-msse -msse2 -msse3 -msse4 -msse4.1 -msse4.2")
+#  add_definitions(-msse -msse2 -msse3 -msse4 -msse4.1 -msse4.2)
+#  set(CMAKE_C_FLAGS "-msse -msse2 -msse3 -msse4 -msse4.1 -msse4.2")
+#  set(CMAKE_CXX_FLAGS "-msse -msse2 -msse3 -msse4 -msse4.1 -msse4.2")
 endif()
 
 set(CMAKE_BUILD_TYPE "Release")

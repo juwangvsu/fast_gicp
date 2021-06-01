@@ -17,6 +17,12 @@
 #include <fast_gicp/ndt/ndt_cuda.hpp>
 #include <fast_gicp/gicp/fast_vgicp_cuda.hpp>
 #endif
+#ifdef _OPENMP
+   #include <omp.h>
+#else
+   #define omp_get_thread_num() 0
+   #define omp_get_max_threads() 1
+#endif
 
 // benchmark for PCL's registration methods
 template <typename Registration>

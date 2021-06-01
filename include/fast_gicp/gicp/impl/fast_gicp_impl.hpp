@@ -2,6 +2,12 @@
 #define FAST_GICP_FAST_GICP_IMPL_HPP
 
 #include <fast_gicp/so3/so3.hpp>
+#ifdef _OPENMP
+   #include <omp.h>
+#else
+   #define omp_get_thread_num() 0
+   #define omp_get_max_threads() 1
+#endif
 
 namespace fast_gicp {
 
